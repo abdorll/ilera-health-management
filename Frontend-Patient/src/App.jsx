@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Navbar from "./components/Navbar";
 import { Context } from "./main";
 import axios from "axios";
-import Footer from "./components/footer";
+import Footer from "./components/Footer";
 import Loading from "./components/loading";
 
 const App = () => {
