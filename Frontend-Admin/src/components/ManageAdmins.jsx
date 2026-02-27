@@ -19,7 +19,7 @@ const ManageAdmins = () => {
         const fetchAdmins = async () => {
             try {
                 const { data } = await axios.get(
-                    "${import.meta.env.VITE_API_URL}/api/v1/user/admins",
+                    `${import.meta.env.VITE_API_URL}/api/v1/user/admins`,
                     { withCredentials: true }
                 );
                 setAdmins(data.admins);

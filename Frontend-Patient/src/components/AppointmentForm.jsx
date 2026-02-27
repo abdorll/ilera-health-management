@@ -44,7 +44,7 @@ const AppointmentForm = () => {
     }
     try {
       const { data } = await axios.post(
-        "${import.meta.env.VITE_API_URL}/api/v1/appointment/post",
+        `${import.meta.env.VITE_API_URL}/api/v1/appointment/post`,
         {
           department,
           condition,

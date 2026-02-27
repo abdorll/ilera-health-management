@@ -52,7 +52,7 @@ const Sidebar = () => {
 
   const handleLogout = async () => {
     await axios
-      .get("${import.meta.env.VITE_API_URL}/api/v1/user/admin/logout", {
+      .get(`${import.meta.env.VITE_API_URL}/api/v1/user/admin/logout`, {
         withCredentials: true,
       })
       .then((res) => {

@@ -61,7 +61,7 @@ const AddNewDoctor = () => {
       formData.append("doctrAvatar", doctrAvatar);
 
       const response = await axios.post(
-        "${import.meta.env.VITE_API_URL}/api/v1/user/doctor/addnew",
+        `${import.meta.env.VITE_API_URL}/api/v1/user/doctor/addnew`,
         formData,
         { withCredentials: true, headers: { "Content-Type": "multipart/form-data" } }
       );

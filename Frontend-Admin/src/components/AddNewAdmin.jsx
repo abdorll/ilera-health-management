@@ -23,7 +23,7 @@ const AddNewAdmin = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "${import.meta.env.VITE_API_URL}/api/v1/user/admin/addnew",
+        `${import.meta.env.VITE_API_URL}/api/v1/user/admin/addnew`,
         { firstName, lastName, email, phone, password, gender, nin, dob },
         { withCredentials: true, headers: { "Content-Type": "application/json" } }
       );

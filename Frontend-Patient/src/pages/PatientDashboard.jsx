@@ -28,7 +28,7 @@ const PatientDashboard = () => {
         const fetchMyAppointments = async () => {
             try {
                 const { data } = await axios.get(
-                    "${import.meta.env.VITE_API_URL}/api/v1/appointment/myappointments",
+                    `${import.meta.env.VITE_API_URL}/api/v1/appointment/myappointments`,
                     { withCredentials: true }
                 );
                 setAppointments(data.appointments);

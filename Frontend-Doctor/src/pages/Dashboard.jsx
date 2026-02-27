@@ -43,10 +43,10 @@ const Dashboard = () => {
         setLoading(true);
         try {
             const [myRes, unRes] = await Promise.all([
-                axios.get("${import.meta.env.VITE_API_URL}/api/v1/appointment/doctor/mypatients", {
+                axios.get(`${import.meta.env.VITE_API_URL}/api/v1/appointment/doctor/mypatients`, {
                     withCredentials: true,
                 }),
-                axios.get("${import.meta.env.VITE_API_URL}/api/v1/appointment/doctor/unassigned", {
+                axios.get(`${import.meta.env.VITE_API_URL}/api/v1/appointment/doctor/unassigned`, {
                     withCredentials: true,
                 }),
             ]);
@@ -62,7 +62,7 @@ const Dashboard = () => {
     const handleSelfAssign = async (appointmentId) => {
         try {
             const { data } = await axios.put(
-                "${import.meta.env.VITE_API_URL}/api/v1/appointment/doctor/selfassign",
+                `${import.meta.env.VITE_API_URL}/api/v1/appointment/doctor/selfassign`,
                 { appointmentId },
                 { withCredentials: true }
             );
@@ -76,7 +76,7 @@ const Dashboard = () => {
     const handleRespond = async (appointmentId, response) => {
         try {
             const { data } = await axios.put(
-                "${import.meta.env.VITE_API_URL}/api/v1/appointment/doctor/respond",
+                `${import.meta.env.VITE_API_URL}/api/v1/appointment/doctor/respond`,
                 { appointmentId, response },
                 { withCredentials: true }
             );
@@ -90,7 +90,7 @@ const Dashboard = () => {
     const handleComplete = async (appointmentId) => {
         try {
             const { data } = await axios.put(
-                "${import.meta.env.VITE_API_URL}/api/v1/appointment/doctor/complete",
+                `${import.meta.env.VITE_API_URL}/api/v1/appointment/doctor/complete`,
                 { appointmentId },
                 { withCredentials: true }
             );
@@ -103,7 +103,7 @@ const Dashboard = () => {
 
     const handleLogout = async () => {
         try {
-            await axios.get("${import.meta.env.VITE_API_URL}/api/v1/user/doctor/logout", {
+            await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/user/doctor/logout`, {
                 withCredentials: true,
             });
             toast.success("Logged out successfully");
