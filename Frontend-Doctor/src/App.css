@@ -1,0 +1,670 @@
+/* ============================================
+   ÌLERA HEALTH — Doctor Portal CSS
+   Green Theme | Modern Premium Design
+   ============================================ */
+
+:root {
+    --primary: #1a8d4f;
+    --primary-dark: #14713f;
+    --primary-light: #22b566;
+    --primary-pale: #e8f5ee;
+    --primary-gradient: linear-gradient(135deg, #1a8d4f 0%, #22b566 50%, #2dd36f 100%);
+    --bg-main: #f0f7f3;
+    --bg-card: #ffffff;
+    --text-primary: #1a2e23;
+    --text-secondary: #4a6b57;
+    --text-light: #7a9b8a;
+    --text-white: #ffffff;
+    --border: #d0e5d9;
+    --shadow-sm: 0 2px 8px rgba(26, 141, 79, 0.08);
+    --shadow-md: 0 4px 20px rgba(26, 141, 79, 0.12);
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Outfit', 'Inter', sans-serif;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-primary);
+}
+
+body {
+    background: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* -------- Login Page -------- */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0d3d22 0%, #1a5e3a 50%, #1a8d4f 100%);
+    padding: 24px;
+}
+
+.login-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 48px 40px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.login-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+}
+
+.logo-icon {
+    font-size: 1.6rem;
+    color: var(--text-white);
+}
+
+.login-header h1 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--primary-dark);
+}
+
+.login-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 14px 14px 42px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 0.92rem;
+    transition: var(--transition);
+    background: var(--bg-main);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: var(--bg-card);
+    box-shadow: 0 0 0 4px rgba(26, 141, 79, 0.1);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: var(--primary-gradient);
+    color: var(--text-white);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 8px;
+}
+
+.login-btn:hover {
+    box-shadow: 0 4px 20px rgba(26, 141, 79, 0.35);
+    transform: translateY(-1px);
+}
+
+.login-hint {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+/* -------- Navbar -------- */
+.doc-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 32px;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.doc-nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-logo-icon {
+    font-size: 1.3rem;
+    color: var(--primary);
+}
+
+.nav-brand-text {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--primary-dark);
+}
+
+.nav-brand-badge {
+    padding: 2px 10px;
+    background: var(--primary-pale);
+    color: var(--primary);
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.doc-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.doc-nav-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--text-primary);
+}
+
+.doc-nav-user svg {
+    color: var(--primary);
+}
+
+.doc-nav-dept {
+    padding: 4px 12px;
+    background: var(--primary);
+    color: var(--text-white);
+    font-size: 0.72rem;
+    font-weight: 600;
+    border-radius: 20px;
+}
+
+.doc-logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border: 2px solid #dc2626;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: #dc2626;
+    font-weight: 600;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.doc-logout-btn:hover {
+    background: #dc2626;
+    color: var(--text-white);
+}
+
+/* -------- Content -------- */
+.doc-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+}
+
+.doc-welcome h1 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.doc-welcome p {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    margin-top: 4px;
+}
+
+/* -------- Stats -------- */
+.doc-stats {
+    display: flex;
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.doc-stat-card {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+}
+
+.doc-stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.doc-stat-icon.assigned {
+    background: #e8f5ee;
+    color: #16a34a;
+}
+
+.doc-stat-icon.unassigned {
+    background: #fff8e1;
+    color: #f59e0b;
+}
+
+.doc-stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.doc-stat-num {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+}
+
+.doc-stat-label {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* -------- Tabs -------- */
+.doc-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 0;
+}
+
+.doc-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    background: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: var(--transition);
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    font-family: var(--font-primary);
+}
+
+.doc-tab:hover {
+    color: var(--primary);
+}
+
+.doc-tab.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+
+/* -------- Appointment List -------- */
+.doc-apt-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.doc-apt-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.doc-apt-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.doc-apt-card.unassigned {
+    border-left: 4px solid #f59e0b;
+}
+
+.doc-apt-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, var(--primary-pale) 0%, #fff 100%);
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.doc-apt-patient {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.doc-apt-patient-icon {
+    font-size: 1.2rem;
+    color: var(--primary);
+}
+
+.doc-apt-patient h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.doc-apt-dept-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    background: var(--primary);
+    color: var(--text-white);
+    font-size: 0.68rem;
+    font-weight: 600;
+    border-radius: 20px;
+}
+
+.doc-apt-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.doc-apt-status.accepted {
+    background: #e8f5ee;
+    color: #16a34a;
+}
+
+.doc-self-assign-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 2px solid var(--primary);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: var(--font-primary);
+}
+
+.doc-self-assign-btn:hover {
+    background: var(--primary);
+    color: var(--text-white);
+    box-shadow: 0 4px 16px rgba(26, 141, 79, 0.25);
+}
+
+/* -------- Appointment Body -------- */
+.doc-apt-body {
+    padding: 20px 24px;
+}
+
+.doc-apt-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.doc-apt-detail-icon {
+    color: var(--primary);
+    font-size: 0.9rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.doc-apt-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 2px;
+}
+
+.doc-apt-value {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+.doc-apt-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.doc-apt-contact {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+}
+
+.doc-apt-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+}
+
+.doc-apt-contact-item svg {
+    color: var(--primary);
+    font-size: 0.8rem;
+}
+
+/* -------- Empty & Loading -------- */
+.doc-empty {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+}
+
+.doc-empty-icon {
+    font-size: 2.4rem;
+    color: var(--text-light);
+    margin-bottom: 16px;
+}
+
+.doc-empty h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.doc-empty p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.doc-loading {
+    text-align: center;
+    padding: 60px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* -------- Action Buttons -------- */
+.doc-action-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+}
+
+.doc-accept-btn,
+.doc-reject-btn,
+.doc-complete-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: var(--font-primary);
+    border: none;
+}
+
+.doc-accept-btn {
+    background: #16a34a;
+    color: var(--text-white);
+}
+
+.doc-accept-btn:hover {
+    background: #15803d;
+    box-shadow: 0 4px 16px rgba(22, 163, 74, 0.3);
+}
+
+.doc-reject-btn {
+    background: transparent;
+    border: 2px solid #dc2626;
+    color: #dc2626;
+}
+
+.doc-reject-btn:hover {
+    background: #dc2626;
+    color: var(--text-white);
+}
+
+.doc-complete-btn {
+    background: #0d9488;
+    color: var(--text-white);
+}
+
+.doc-complete-btn:hover {
+    background: #0f766e;
+    box-shadow: 0 4px 16px rgba(13, 148, 136, 0.3);
+}
+
+.doc-status-badge {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.doc-apt-header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* -------- Responsive -------- */
+@media (max-width: 768px) {
+    .doc-navbar {
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px 16px;
+    }
+
+    .doc-nav-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .doc-content {
+        padding: 20px 16px 48px;
+    }
+
+    .doc-stats {
+        flex-direction: column;
+    }
+
+    .doc-welcome h1 {
+        font-size: 1.3rem;
+    }
+
+    .doc-apt-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .doc-apt-meta {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .doc-apt-contact {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .login-card {
+        padding: 32px 24px;
+    }
+}

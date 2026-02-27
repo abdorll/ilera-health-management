@@ -1,217 +1,163 @@
 import axios from "axios";
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { FaStethoscope, FaCalendarAlt, FaMapMarkerAlt, FaClipboardList } from "react-icons/fa";
 
 const AppointmentForm = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [aadhar, setAadhar] = useState("");
-  const [dob, setDob] = useState("");
-  const [gender, setGender] = useState("");
+  const [department, setDepartment] = useState("");
+  const [condition, setCondition] = useState("");
   const [appointmentDate, setAppointmentDate] = useState("");
-  const [department, setDepartment] = useState("Pediatrics");
-  const [doctorFirstName, setDoctorFirstName] = useState("");
-  const [doctorLastName, setDoctorLastName] = useState("");
   const [address, setAddress] = useState("");
   const [hasVisited, setHasVisited] = useState(false);
+  const navigateTo = useNavigate();
 
   const departmentsArray = [
-    "Pediatrics",
-    "Orthopedics",
-    "Cardiology",
-    "Neurology",
-    "Oncology",
-    "Radiology",
-    "Physical Therapy",
-    "Dermatology",
-    "ENT",
+    { name: "Pediatrics", icon: "👶" },
+    { name: "Orthopedics", icon: "🦴" },
+    { name: "Cardiology", icon: "❤️" },
+    { name: "Neurology", icon: "🧠" },
+    { name: "Oncology", icon: "🔬" },
+    { name: "Radiology", icon: "📡" },
+    { name: "Physical Therapy", icon: "🏃" },
+    { name: "Dermatology", icon: "🧴" },
+    { name: "ENT", icon: "👂" },
   ];
 
-  const [doctors, setDoctors] = useState([]);
-  useEffect(() => {
-    const fetchDoctors = async () => {
-      const { data } = await axios.get(
-        "http://localhost:4000/api/v1/user/doctors",
-        { withCredentials: true }
-      );
-      setDoctors(data.doctors);
-      console.log(data.doctors);
-    };
-    fetchDoctors();
-  }, []);
   const handleAppointment = async (e) => {
     e.preventDefault();
+    if (!department) {
+      toast.error("Please select a department");
+      return;
+    }
+    if (!condition) {
+      toast.error("Please describe your condition");
+      return;
+    }
+    if (!appointmentDate) {
+      toast.error("Please select a preferred date");
+      return;
+    }
+    if (!address) {
+      toast.error("Please provide your address");
+      return;
+    }
     try {
-      const hasVisitedBool = Boolean(hasVisited);
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/appointment/post",
+        "${import.meta.env.VITE_API_URL}/api/v1/appointment/post",
         {
-          firstName,
-          lastName,
-          email,
-          phone,
-          aadhar,
-          dob,
-          gender,
-          appointment_date: appointmentDate,
           department,
-          doctor_firstName: doctorFirstName,
-          doctor_lastName: doctorLastName,
-          hasVisited: hasVisitedBool,
+          condition,
+          appointment_date: appointmentDate,
           address,
+          hasVisited: Boolean(hasVisited),
         },
         {
           withCredentials: true,
           headers: { "Content-Type": "application/json" },
         }
       );
-      toast.success(data.message);
-      setFirstName(""),
-        setLastName(""),
-        setEmail(""),
-        setPhone(""),
-        setAadhar(""),
-        setDob(""),
-        setGender(""),
-        setAppointmentDate(""),
-        setDepartment(""),
-        setDoctorFirstName(""),
-        setDoctorLastName(""),
-        setHasVisited(""),
-        setAddress("");
+      toast.success("Appointment booked! 🎉 Check your dashboard — a doctor will be assigned to you shortly.");
+      navigateTo("/");
     } catch (error) {
       toast.error(error.response.data.message);
     }
   };
 
   return (
-    <>
-      <div className="container form-component appointment-form">
-        <h2>Appointment</h2>
+    <div className="appointment-page">
+      <div className="appointment-container">
+        {/* Header */}
+        <div className="appointment-header">
+          <h2>Book Your Appointment</h2>
+          <p>A doctor will be assigned to you automatically based on the department you select.</p>
+        </div>
+
         <form onSubmit={handleAppointment}>
-          <div>
-            <input
-              type="text"
-              placeholder="First Name"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Last Name"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
+          {/* Step 1: Department Selection */}
+          <div className="form-section">
+            <div className="section-label">
+              <FaStethoscope />
+              <span>Select Department</span>
+            </div>
+            <div className="department-grid">
+              {departmentsArray.map((dept, index) => (
+                <div
+                  key={index}
+                  className={`dept-card ${department === dept.name ? "selected" : ""}`}
+                  onClick={() => setDepartment(dept.name)}
+                >
+                  <span className="dept-icon">{dept.icon}</span>
+                  <span className="dept-name">{dept.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Step 2: Condition */}
+          <div className="form-section">
+            <div className="section-label">
+              <FaClipboardList />
+              <span>Describe Your Condition</span>
+            </div>
+            <textarea
+              rows="5"
+              value={condition}
+              onChange={(e) => setCondition(e.target.value)}
+              placeholder="Please describe your symptoms, concerns, or reason for visit in detail..."
+              className="condition-textarea"
             />
           </div>
-          <div>
-            <input
-              type="text"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              type="number"
-              placeholder="Mobile"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-          </div>
-          <div>
-            <input
-              type="number"
-              placeholder="Aadhar Number"
-              value={aadhar}
-              onChange={(e) => setAadhar(e.target.value)}
-            />
+
+          {/* Step 3: Date & Address */}
+          <div className="form-section">
+            <div className="section-label">
+              <FaCalendarAlt />
+              <span>Preferred Date</span>
+            </div>
             <input
               type="date"
-              placeholder="Date of Birth"
-              value={dob}
-              onChange={(e) => setDob(e.target.value)}
-            />
-          </div>
-          <div>
-            <select value={gender} onChange={(e) => setGender(e.target.value)}>
-              <option value="">Select Gender</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Female">Others</option>
-            </select>
-            <input
-              type="date"
-              placeholder="Appointment Date"
               value={appointmentDate}
               onChange={(e) => setAppointmentDate(e.target.value)}
+              className="date-input"
+              min={new Date().toISOString().split("T")[0]}
             />
           </div>
-          <div>
-            <select
-              value={department}
-              onChange={(e) => {
-                setDepartment(e.target.value);
-                setDoctorFirstName("");
-                setDoctorLastName("");
-              }}
-            >
-              {departmentsArray.map((depart, index) => {
-                return (
-                  <option value={depart} key={index}>
-                    {depart}
-                  </option>
-                );
-              })}
-            </select>
-            <select
-              value={`${doctorFirstName} ${doctorLastName}`}
-              onChange={(e) => {
-                const [firstName, lastName] = e.target.value.split(" ");
-                setDoctorFirstName(firstName);
-                setDoctorLastName(lastName);
-              }}
-              disabled={!department}
-            >
-              <option value="">Select Doctor</option>
-              {doctors
-                .filter((doctor) => doctor.doctrDptmnt === department)
-                .map((doctor, index) => (
-                  <option
-                    value={`${doctor.firstName} ${doctor.lastName}`}
-                    key={index}
-                  >
-                    {doctor.firstName} {doctor.lastName}
-                  </option>
-                ))}
-            </select>
-          </div>
-          <textarea
-            rows="10"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            placeholder="Address"
-          />
-          <div
-            style={{
-              gap: "10px",
-              justifyContent: "flex-end",
-              flexDirection: "row",
-            }}
-          >
-            <p>Have you visited before?</p>
-            <input
-              type="checkbox"
-              checked={hasVisited}
-              onChange={(e) => setHasVisited(e.target.checked)}
-              style={{ flex: "none", width: "25px"}}
+
+          <div className="form-section">
+            <div className="section-label">
+              <FaMapMarkerAlt />
+              <span>Your Address</span>
+            </div>
+            <textarea
+              rows="2"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              placeholder="Enter your current residential address"
+              className="address-textarea"
             />
           </div>
-          <button >Get Appointment</button>
+
+          {/* Visited Before */}
+          <div className="form-section visited-section">
+            <label className="checkbox-label">
+              <input
+                type="checkbox"
+                checked={hasVisited}
+                onChange={(e) => setHasVisited(e.target.checked)}
+              />
+              <span className="checkmark"></span>
+              <span>I have visited Ìlera Health & Wellness before</span>
+            </label>
+          </div>
+
+          {/* Submit */}
+          <button type="submit" className="submit-btn">
+            Confirm Appointment
+          </button>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 

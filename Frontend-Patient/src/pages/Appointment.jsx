@@ -6,7 +6,7 @@ const Appointment = () => {
   return (
     <>
       <Hero
-        title={"Get the Best Care Possible: Book an Appointment at Life Care Hospital"}
+        title={"Book Your Appointment at Ìlera Health & Wellness"}
         imageUrl={"/signin.png"}
       />
       <AppointmentForm />

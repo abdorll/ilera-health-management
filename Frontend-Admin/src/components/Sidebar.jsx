@@ -4,7 +4,7 @@ import { TiHome } from "react-icons/ti";
 import { RiLogoutBoxFill } from "react-icons/ri";
 import { AiFillMessage } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { FaUserDoctor } from "react-icons/fa6";
+import { FaUserDoctor, FaUsersGear } from "react-icons/fa6";
 import { MdAddModerator } from "react-icons/md";
 import { IoPersonAddSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +15,8 @@ import axios from "axios";
 const Sidebar = () => {
   const [show, setShow] = useState(false);
 
-  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, user } = useContext(Context);
+  const isPrincipal = user?.email === "admin@ilera.com";
 
   const navigateTo = useNavigate();
 
@@ -44,9 +45,14 @@ const Sidebar = () => {
     setShow(!show);
   };
 
+  const gotoManageAdmins = () => {
+    navigateTo("/admins");
+    setShow(!show);
+  };
+
   const handleLogout = async () => {
     await axios
-      .get("http://localhost:4000/api/v1/user/admin/logout", {
+      .get("${import.meta.env.VITE_API_URL}/api/v1/user/admin/logout", {
         withCredentials: true,
       })
       .then((res) => {
@@ -67,7 +73,8 @@ const Sidebar = () => {
         <div className="links">
           <TiHome onClick={gotoHome} />
           <FaUserDoctor onClick={gotoDoctors} />
-          <MdAddModerator onClick={gotoAddNewAdmin} />
+          {isPrincipal && <MdAddModerator onClick={gotoAddNewAdmin} />}
+          {isPrincipal && <FaUsersGear onClick={gotoManageAdmins} />}
           <IoPersonAddSharp onClick={gotoAddNewDoctor} />
           <AiFillMessage onClick={gotoMessages} />
           <RiLogoutBoxFill onClick={handleLogout} />

@@ -2,82 +2,83 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaLocationDot, FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
-import { FaGithub, FaInstagramSquare } from "react-icons/fa";
-import { RxLinkedinLogo } from "react-icons/rx";
-import { IoGlobeOutline } from "react-icons/io5";
+import { FaClock, FaHeartbeat } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <>
-      <footer className="container">
-        <hr />
-        <div className="content">
-          <div>
-            <img src="/logo.png" alt="logo" className="logo-img" />
+    <footer className="site-footer">
+      <div className="footer-inner container">
+        {/* Brand Column */}
+        <div className="footer-brand">
+          <div className="footer-logo-row">
+            <img src="/logo.png" alt="Ìlera" className="footer-logo" />
           </div>
-          <div>
-            <h4>Quick Links</h4>
-            <ul>
-              <Link to={"/"}>Home</Link>
-              <Link to={"/appointment"}>Appointment</Link>
-              <Link to={"/about"}>About Us</Link>
-            </ul>
-          </div>
-          <div>
-            <h4>Developed by</h4>
-            <p>Muhammad Fairooz</p>
-            <div className="social-icons">
-              <a
-                href="https://fairooz2150.github.io/Fairooz/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <IoGlobeOutline />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/muhammad-fairooz-0b1136268/?trk=public-profile-join-page"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <RxLinkedinLogo />
-              </a>
-              <a
-                href="https://github.com/Fairooz2150"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaGithub />
-              </a>
-              <a
-                href="https://www.instagram.com/marsh__mell_o/?igsh=MWhwZmI5NDRsMWoxMQ%3D%3D"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaInstagramSquare />
-              </a>
-            </div>
-          </div>
-          <div>
-            <h4>Contact</h4>
-            <div>
+          <p className="footer-tagline">
+            Your trusted healthcare partner at the University of Lagos.
+            Delivering compassionate care with modern expertise.
+          </p>
+        </div>
+
+        {/* Quick Links */}
+        <div className="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><Link to={"/"}>Home</Link></li>
+            <li><Link to={"/appointment"}>Book Appointment</Link></li>
+            <li><Link to={"/about"}>About Us</Link></li>
+            <li><Link to={"/login"}>Patient Login</Link></li>
+          </ul>
+        </div>
+
+        {/* Departments */}
+        <div className="footer-col">
+          <h4>Departments</h4>
+          <ul>
+            <li><span>Cardiology</span></li>
+            <li><span>Neurology</span></li>
+            <li><span>Pediatrics</span></li>
+            <li><span>Orthopedics</span></li>
+            <li><span>Dermatology</span></li>
+          </ul>
+        </div>
+
+        {/* Contact Info */}
+        <div className="footer-col">
+          <h4>Contact Us</h4>
+          <div className="footer-contact">
+            <div className="footer-contact-item">
               <FaPhone />
-              <span>999-999-9999</span>
+              <div>
+                <span>+2349076106639</span>
+                <span>+2348121985597</span>
+              </div>
             </div>
-            <div>
+            <div className="footer-contact-item">
               <MdEmail />
-              <span>lifecare@gmail.com</span>
+              <span>info@ilera.com.ng</span>
             </div>
-            <div>
-            <FaLocationDot/>
-            <span>Kerala, India</span>
+            <div className="footer-contact-item">
+              <FaLocationDot />
+              <span>University of Lagos, Akoka, Lagos</span>
+            </div>
+            <div className="footer-contact-item">
+              <FaClock />
+              <span>Mon–Fri: 8am – 6pm</span>
             </div>
           </div>
         </div>
-        <div className="copyright">
-        <p>&copy; {new Date().getFullYear()} Life Care Hospital</p>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="footer-bottom">
+        <div className="container footer-bottom-inner">
+          <p>&copy; {new Date().getFullYear()} Ìlera Health & Wellness. All rights reserved.</p>
+          <p className="footer-heart">
+            Made with <FaHeartbeat /> for better healthcare
+          </p>
         </div>
-      </footer>
-    </>
+      </div>
+    </footer>
   );
 };
 

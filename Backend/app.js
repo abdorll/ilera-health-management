@@ -16,7 +16,7 @@ config({ path: "./config/config.env" })
 
 app.use(cors(
     {
-        origin: [process.env.FRONTEND_PATIENT, process.env.FRONTEND_ADMIN],
+        origin: [process.env.FRONTEND_PATIENT, process.env.FRONTEND_ADMIN, process.env.FRONTEND_DOCTOR],
         methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true
     }

@@ -6,10 +6,10 @@ const AboutUs = () => {
   return (
     <>
       <Hero
-        title={"Learn More About Us | Life Care Hospital "}
+        title={"Learn More About Ìlera Health & Wellness"}
         imageUrl={"/about.png"}
       />
-      <Biography imageUrl={"/whoweare.png"}/>
+      <Biography imageUrl={"/whoweare.png"} />
     </>
   );
 };

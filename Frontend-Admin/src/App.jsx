@@ -4,6 +4,7 @@ import Dashboard from "./components/Dashboard";
 import Messages from "./components/Messages";
 import AddNewDoctor from "./components/AddNewDoctor";
 import AddNewAdmin from "./components/AddNewAdmin";
+import ManageAdmins from "./components/ManageAdmins";
 import Login from "./components/Login";
 import Doctors from "./components/Doctors";
 import Sidebar from "./components/Sidebar";
@@ -23,7 +24,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/api/v1/user/admin/me",
+          "${import.meta.env.VITE_API_URL}/api/v1/user/admin/me",
           { withCredentials: true }
         );
         setIsAuthenticated(true);
@@ -31,12 +32,12 @@ const App = () => {
       } catch (error) {
         setIsAuthenticated(false);
         setUser({});
-      }finally {
+      } finally {
         setLoading(false);
       }
     };
     fetchUser();
-  }, [isAuthenticated,setIsAuthenticated, setUser]);
+  }, [isAuthenticated, setIsAuthenticated, setUser]);
 
 
   if (loading) {
@@ -45,13 +46,14 @@ const App = () => {
 
   return (
     <>
-      <Router>
+      <Router basename="/admin">
         <Sidebar />
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/doctor/addnew" element={<AddNewDoctor />} />
           <Route path="/admin/addnew" element={<AddNewAdmin />} />
+          <Route path="/admins" element={<ManageAdmins />} />
           <Route path="/messages" element={<Messages />} />
           <Route path="/doctors" element={<Doctors />} />
         </Routes>

@@ -1,86 +1,72 @@
 import React from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import { FaBaby, FaBone, FaHeartbeat, FaBrain, FaMicroscope, FaXRay, FaRunning, FaAllergies, FaHeadSideCough } from "react-icons/fa";
 
 const Departments = () => {
   const departmentsArray = [
     {
       name: "Pediatrics",
-      imageUrl: "/departments/pedia.jpg",
+      icon: <FaBaby />,
+      description: "Comprehensive healthcare for infants, children, and adolescents including vaccinations, growth monitoring, and childhood illness treatment."
     },
     {
       name: "Orthopedics",
-      imageUrl: "/departments/ortho.jpg",
+      icon: <FaBone />,
+      description: "Diagnosis and treatment of musculoskeletal conditions including bones, joints, ligaments, tendons, and muscles."
     },
     {
       name: "Cardiology",
-      imageUrl: "/departments/cardio.jpg",
+      icon: <FaHeartbeat />,
+      description: "Expert care for heart and cardiovascular conditions including hypertension, heart failure, and preventive cardiac health."
     },
     {
       name: "Neurology",
-      imageUrl: "/departments/neuro.jpg",
+      icon: <FaBrain />,
+      description: "Specialized treatment for disorders of the nervous system including headaches, epilepsy, stroke, and neurological conditions."
     },
     {
       name: "Oncology",
-      imageUrl: "/departments/onco.jpg",
+      icon: <FaMicroscope />,
+      description: "Advanced cancer care including early detection, diagnosis, chemotherapy, and comprehensive oncological treatment plans."
     },
     {
       name: "Radiology",
-      imageUrl: "/departments/radio.jpg",
+      icon: <FaXRay />,
+      description: "State-of-the-art medical imaging services including X-rays, CT scans, MRI, and ultrasound for accurate diagnosis."
     },
     {
       name: "Physical Therapy",
-      imageUrl: "/departments/therapy.jpg",
+      icon: <FaRunning />,
+      description: "Rehabilitation and recovery programs to restore movement, reduce pain, and improve physical function after injury or surgery."
     },
     {
       name: "Dermatology",
-      imageUrl: "/departments/derma.jpg",
+      icon: <FaAllergies />,
+      description: "Expert care for skin, hair, and nail conditions including acne, eczema, skin infections, and cosmetic dermatology."
     },
     {
       name: "ENT",
-      imageUrl: "/departments/ent.jpg",
+      icon: <FaHeadSideCough />,
+      description: "Ear, Nose & Throat specialist services for hearing issues, sinusitis, tonsillitis, and respiratory conditions."
     },
   ];
 
-  const responsive = {
-    extraLarge: {
-      breakpoint: { max: 3000, min: 1324 },
-      items: 4,
-      slidesToSlide: 1, // optional, default to 1.
-    },
-    large: {
-      breakpoint: { max: 1324, min: 1005 },
-      items: 3,
-      slidesToSlide: 1, // optional, default to 1.
-    },
-    medium: {
-      breakpoint: { max: 1005, min: 700 },
-      items: 2,
-      slidesToSlide: 1, // optional, default to 1.
-    },
-    small: {
-      breakpoint: { max: 700, min: 0 },
-      items: 1,
-      slidesToSlide: 1, // optional, default to 1.
-    },
-  };
-
   return (
-    <div className="container departments">
-      <h2>Departments</h2>
-      <Carousel
-        responsive={responsive}
-       
-      >
-        {departmentsArray.map((depart, index) => {
-          return (
-            <div className="card" key={index}>
-              <div className="depart-name">{depart.name}</div>
-              <img src={depart.imageUrl} alt={depart.name} />
+    <div className="container departments-section">
+      <div className="departments-header">
+        <h2>Our Departments</h2>
+        <p>Explore our specialized medical departments staffed by experienced professionals</p>
+      </div>
+      <div className="departments-grid">
+        {departmentsArray.map((dept, index) => (
+          <div className="dept-display-card" key={index}>
+            <div className="dept-display-icon">
+              {dept.icon}
             </div>
-          );
-        })}
-      </Carousel>
+            <h3>{dept.name}</h3>
+            <p>{dept.description}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

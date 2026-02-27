@@ -1,0 +1,11 @@
+{
+    "name": "ilera-health-management-system",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "build:patient": "cd Frontend-Patient && npm install && npm run build",
+        "build:admin": "cd Frontend-Admin && npm install && npm run build",
+        "build:doctor": "cd Frontend-Doctor && npm install && npm run build",
+        "build": "npm run build:patient && npm run build:admin && npm run build:doctor && node merge-dist.js"
+    }
+}
