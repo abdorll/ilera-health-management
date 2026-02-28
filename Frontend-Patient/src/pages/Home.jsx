@@ -9,9 +9,9 @@ const Home = () => {
         <>
             <Hero
                 title={"Ìlera Health & Wellness — Where Your Health Comes First"}
-                imageUrl={"/hero.png"}
+                imageUrl={`${import.meta.env.BASE_URL}hero.png`}
             />
-            <Biography imageUrl={"/about.png"} />
+            <Biography imageUrl={`${import.meta.env.BASE_URL}about.png`} />
             <Departments />
             <MessageForm />
         </>

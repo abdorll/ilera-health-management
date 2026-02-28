@@ -11,7 +11,7 @@ const Footer = () => {
         {/* Brand Column */}
         <div className="footer-brand">
           <div className="footer-logo-row">
-            <img src="/logo.png" alt="Ìlera" className="footer-logo" />
+            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Ìlera" className="footer-logo" />
           </div>
           <p className="footer-tagline">
             Your trusted healthcare partner at the University of Lagos.

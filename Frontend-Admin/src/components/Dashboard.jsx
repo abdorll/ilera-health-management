@@ -107,7 +107,7 @@ const Dashboard = () => {
       <section className="dashboard page">
         <div className="banner">
           <div className="firstBox">
-            <img src="/doc.png" alt="Admin" />
+            <img src={`${import.meta.env.BASE_URL}doc.png`} alt="Admin" />
             <div className="content">
               <div>
                 <p>Hello, </p>

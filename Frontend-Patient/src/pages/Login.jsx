@@ -38,7 +38,7 @@ const Login = () => {
     <div className="auth-page">
       <div className="auth-card">
         <div className="auth-header">
-          <img src="/logo.png" alt="Ìlera" className="auth-logo" />
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Ìlera" className="auth-logo" />
           <h2>Welcome Back</h2>
           <p>Sign in to manage your appointments and healthcare</p>
         </div>

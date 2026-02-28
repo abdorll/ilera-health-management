@@ -7,9 +7,9 @@ const AboutUs = () => {
     <>
       <Hero
         title={"Learn More About Ìlera Health & Wellness"}
-        imageUrl={"/about.png"}
+        imageUrl={`${import.meta.env.BASE_URL}about.png`}
       />
-      <Biography imageUrl={"/whoweare.png"} />
+      <Biography imageUrl={`${import.meta.env.BASE_URL}whoweare.png`} />
     </>
   );
 };

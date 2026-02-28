@@ -44,7 +44,7 @@ const Login = () => {
     <>
       {loading && <Loading />}
       <div className="container form-component ">
-        <img src="/logo.png" alt="Ìlera" className="logo" />
+        <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Ìlera" className="logo" />
         <h1 className="form-title">Welcome to Ìlera Admin</h1>
         <p>Only Admins are allowed to access these resources!</p>
         <form onSubmit={handleLogin}>

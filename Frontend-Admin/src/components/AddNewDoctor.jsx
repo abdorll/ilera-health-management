@@ -82,7 +82,7 @@ const AddNewDoctor = () => {
     <section className="page add-staff-page">
       <div className="add-staff-card">
         <div className="add-staff-header">
-          <img src="/logo.png" alt="Ìlera" />
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Ìlera" />
           <h1>Register New Doctor</h1>
           <p>Add a specialist to the Ìlera medical team</p>
         </div>
@@ -90,7 +90,7 @@ const AddNewDoctor = () => {
         <form onSubmit={addNewDoctor} className="add-staff-body">
           <div className="avatar-upload">
             <img
-              src={avatarPreview ? avatarPreview : "/docHolder.jpg"}
+              src={avatarPreview ? avatarPreview : `${import.meta.env.BASE_URL}docHolder.jpg`}
               alt="Doctor Avatar"
             />
             <div className="form-group" style={{ width: "100%", marginBottom: 0 }}>

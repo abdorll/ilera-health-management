@@ -55,7 +55,7 @@ const Register = () => {
     <div className="auth-page">
       <div className="auth-card auth-card-wide">
         <div className="auth-header">
-          <img src="/logo.png" alt="Ìlera" className="auth-logo" />
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Ìlera" className="auth-logo" />
           <h2>Create Account</h2>
           <p>Join Ìlera Health & Wellness at the University of Lagos</p>
         </div>

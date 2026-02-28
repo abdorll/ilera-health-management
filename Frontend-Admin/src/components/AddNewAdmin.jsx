@@ -45,7 +45,7 @@ const AddNewAdmin = () => {
     <section className="page add-staff-page">
       <div className="add-staff-card">
         <div className="add-staff-header">
-          <img src="/logo.png" alt="Ìlera" />
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Ìlera" />
           <h1>Add New Administrator</h1>
           <p>Invite a new admin to the Ìlera management team</p>
         </div>

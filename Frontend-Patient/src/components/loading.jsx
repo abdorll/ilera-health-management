@@ -3,7 +3,7 @@ import "../App.css"
 const Loading = () => {
   return (
     <div className="loading-overlay">
-      <img src="/loading.gif" alt="Loading..." className="loading-gif" />
+      <img src={`${import.meta.env.BASE_URL}loading.gif`} alt="Loading..." className="loading-gif" />
     </div>
   );
 };

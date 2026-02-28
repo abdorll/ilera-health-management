@@ -35,7 +35,7 @@ const Navbar = () => {
       <nav className="container">
         <div className="logo">
           <img
-            src="/logo.png"
+            src={`${import.meta.env.BASE_URL}logo.png`}
             alt="Ìlera"
             className="logo-img"
             onClick={() => navigateTo("/")}
@@ -78,7 +78,7 @@ const Navbar = () => {
     <nav className="container">
       <div className="logo">
         <img
-          src="/logo.png"
+          src={`${import.meta.env.BASE_URL}logo.png`}
           alt="Ìlera"
           className="logo-img"
           onClick={() => navigateTo("/")}
