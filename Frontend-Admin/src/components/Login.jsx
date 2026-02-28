@@ -6,7 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -26,6 +26,7 @@ const Login = () => {
       );
       toast.success(response.data.message);
       setIsAuthenticated(true);
+      setUser(response.data.user);
       navigateTo("/");
     } catch (error) {
       toast.error(

@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { FaUser, FaEnvelope, FaPhone, FaIdCard, FaLock, FaCalendarAlt } from "react-icons/fa";
 
 const Register = () => {
-  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -41,6 +41,7 @@ const Register = () => {
       );
       toast.success(response.data.message);
       setIsAuthenticated(true);
+      setUser(response.data.user);
       navigateTo("/");
     } catch (error) {
       toast.error(error.response.data.message);
